@@ -21,9 +21,8 @@ class FruitModel extends Model
 
     public static function insertFruit($title, $content)
     {
-        return App::getDatabase()->prepare("INSERT INTO " . self::getTable() . " VALUES(NULL, ?, ?, NOW())",
-            [$title,
-            $content],get_called_class(), true);
+        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, ?, ?, NOW(), NULL)";
+        return App::getDatabase()->prepareInsert($sql,[$title, $content]);
     }
 
     /**
