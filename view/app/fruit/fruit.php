@@ -3,5 +3,5 @@
 </h1>
 
 <?php foreach ($fruits as $fruit): ?>
-    <p><a href=""><?php echo $fruit->title ?></a></p>
+    <p><a href="index.php?page=detailfruit&id=<?= $fruit->id; ?>"><?php echo $fruit->title; ?></a></p>
 <?php endforeach; ?>

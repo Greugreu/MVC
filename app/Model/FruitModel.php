@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Weblitzer\Model;
+use App\App;
 
 /**
  *
@@ -17,6 +18,13 @@ class FruitModel extends Model
     protected $content;
     protected $created_at;
     protected $modified_at;
+
+    public static function insertFruit($title, $content)
+    {
+        return App::getDatabase()->prepare("INSERT INTO " . self::getTable() . " VALUES(NULL, ?, ?, NOW())",
+            [$title,
+            $content],get_called_class(), true);
+    }
 
     /**
      * @return mixed
@@ -69,9 +77,9 @@ class FruitModel extends Model
     /**
      * @param mixed $created_at
      */
-    public function setCreatedAt($created_at): void
+    public function setCreatedAt($date): void
     {
-        $this->created_at = $created_at;
+        $this->created_at = $date;
     }
 
     /**
@@ -85,9 +93,9 @@ class FruitModel extends Model
     /**
      * @param mixed $modified_at
      */
-    public function setModifiedAt($modified_at): void
+    public function setModifiedAt($date): void
     {
-        $this->modified_at = $modified_at;
+        $this->modified_at = $date;
     }
 
 }
