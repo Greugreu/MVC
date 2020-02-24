@@ -22,8 +22,13 @@ class FruitController extends DefaultController
     public function listing()
     {
         $fruits = FruitModel::all();
-        $this->debug($fruits);
+        //$this->debug($fruits);
+
+        $this->render('app.fruit.fruit',[
+            'fruits' => $fruits
+        ]);
     }
 
 
 }
+

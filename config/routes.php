@@ -15,7 +15,7 @@ elseif ($page == 'contact') {
 }
 elseif ($page == 'fruit') {
     $controller = new \App\Controller\FruitController();
-    $controller->index();
+    $controller->listing();
 }
 else {
     $controller = new App\Controller\DefaultController();
